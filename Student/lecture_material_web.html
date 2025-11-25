@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lecture Material</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        background: #f5f6fa;
+      }
+
+      /* ---------- SIDEBAR ---------- */
+      .sidebar {
+        width: 260px;
+        background: #111827;
+        color: white;
+        min-height: 100vh;
+        padding: 25px 15px;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .student-name {
+        color: #9ca3af;
+        margin-bottom: 30px;
+      }
+
+      .menu a {
+        display: flex;
+        align-items: center;
+        color: #e5e7eb;
+        text-decoration: none;
+        padding: 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .menu a i {
+        width: 22px;
+        margin-right: 10px;
+      }
+
+      .menu a:hover,
+      .menu a.active {
+        background: rgb(234, 109, 0);
+        color: white;
+      }
+
+      /* ---------- MAIN ---------- */
+      .main {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .page-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+      }
+
+      /* ---------- Material Tile ---------- */
+      .material-tile {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+
+      .material-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .material-icon {
+        font-size: 50px;
+        color: rgb(234, 109, 0);
+        margin-right: 20px;
+      }
+
+      .material-info {
+        flex: 1;
+      }
+
+      .material-info h3 {
+        margin: 0 0 8px 0;
+        font-size: 20px;
+        color: #111827;
+      }
+
+      .material-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px 25px;
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 10px;
+      }
+
+      .material-details span {
+        font-weight: 600;
+      }
+
+      .download-btn {
+        background: rgb(234, 109, 0);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* Document Preview */
+      .document-preview {
+        margin-top: 20px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #9ca3af;
+        font-size: 18px;
+        background: #f9fafb;
+      }
+
+      @media (max-width: 900px) {
+        .material-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .material-icon {
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ---------- SIDEBAR ---------- -->
+    <div class="sidebar">
+      <div class="logo">Student Portal</div>
+      <div class="student-name">Mufli Mohideen</div>
+
+      <div class="menu">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="my-courses.html"
+          ><i class="fas fa-book-open"></i> My Courses</a
+        >
+        <a href="lecture-notes.html"
+          ><i class="fas fa-file-alt"></i> Lecture Notes</a
+        >
+        <a class="active" href="#"
+          ><i class="fas fa-file-pdf"></i> Lecture Material</a
+        >
+        <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Timetable</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#"><i class="fas fa-wallet"></i> Fees</a>
+        <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+      </div>
+    </div>
+
+    <!-- ---------- MAIN CONTENT ---------- -->
+    <div class="main">
+      <div class="page-title">Lecture Material</div>
+
+      <div class="material-tile">
+        <div class="material-header">
+          <i class="fas fa-file-pdf material-icon"></i>
+          <div class="material-info">
+            <h3>Introduction to Software Engineering</h3>
+            <div class="material-details">
+              <div>Course: <span>SE-2103</span></div>
+              <div>Instructor: <span>Dr. Jane Doe</span></div>
+              <div>Uploaded: <span>2025-03-10</span></div>
+              <div>Size: <span>2 MB</span></div>
+              <div>Type: <span>PDF</span></div>
+            </div>
+          </div>
+          <button class="download-btn">Download</button>
+        </div>
+
+        <div class="document-preview">PDF Document Preview Area</div>
+      </div>
+
+      <div class="material-tile">
+        <div class="material-header">
+          <i class="fas fa-file-pdf material-icon"></i>
+          <div class="material-info">
+            <h3>Software Development Life Cycle</h3>
+            <div class="material-details">
+              <div>Course: <span>SE-2103</span></div>
+              <div>Instructor: <span>Dr. Jane Doe</span></div>
+              <div>Uploaded: <span>2025-03-12</span></div>
+              <div>Size: <span>2.5 MB</span></div>
+              <div>Type: <span>PDF</span></div>
+            </div>
+          </div>
+          <button class="download-btn">Download</button>
+        </div>
+
+        <div class="document-preview">PDF Document Preview Area</div>
+      </div>
+    </div>
+  </body>
+</html>

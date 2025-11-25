@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lecture Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #f5f6fa;
+        display: flex;
+      }
+
+      /* ---------- SIDEBAR ---------- */
+      .sidebar {
+        width: 260px;
+        background: #111827;
+        color: white;
+        min-height: 100vh;
+        padding: 25px 15px;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .student-name {
+        color: #9ca3af;
+        margin-bottom: 30px;
+      }
+
+      .menu a {
+        display: flex;
+        align-items: center;
+        color: #e5e7eb;
+        text-decoration: none;
+        padding: 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .menu a i {
+        width: 22px;
+        margin-right: 10px;
+      }
+
+      .menu a:hover,
+      .menu a.active {
+        background: rgb(234, 109, 0);
+        color: white;
+      }
+
+      /* ---------- MAIN ---------- */
+      .main {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .page-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+      }
+
+      /* ---------- Table Tiles ---------- */
+      .notes-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .notes-table thead {
+        background: #f9fafb;
+        text-align: left;
+      }
+
+      .notes-table th,
+      .notes-table td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 14px;
+        color: #111827;
+      }
+
+      .notes-table th {
+        font-weight: bold;
+        color: #374151;
+      }
+
+      .action-btn {
+        background: rgb(234, 109, 0);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        margin-right: 6px;
+      }
+
+      .action-btn.view {
+        background: #6b7280;
+      }
+
+      @media (max-width: 900px) {
+        .notes-table th,
+        .notes-table td {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ---------- SIDEBAR ---------- -->
+    <div class="sidebar">
+      <div class="logo">Student Portal</div>
+      <div class="student-name">Mufli Mohideen</div>
+
+      <div class="menu">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="my-courses.html"
+          ><i class="fas fa-book-open"></i> My Courses</a
+        >
+        <a class="active" href="#"
+          ><i class="fas fa-file-alt"></i> Lecture Notes</a
+        >
+        <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Timetable</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#"><i class="fas fa-wallet"></i> Fees</a>
+        <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+      </div>
+    </div>
+
+    <!-- ---------- MAIN CONTENT ---------- -->
+    <div class="main">
+      <div class="page-title">Lecture Notes</div>
+
+      <table class="notes-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Size</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Introduction to Software Engineering</td>
+            <td>SE-2103</td>
+            <td>2025-03-10</td>
+            <td>2 MB</td>
+            <td>
+              <button class="action-btn view">View</button>
+              <button class="action-btn">Download</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Software Development Life Cycle</td>
+            <td>SE-2103</td>
+            <td>2025-03-12</td>
+            <td>2.5 MB</td>
+            <td>
+              <button class="action-btn view">View</button>
+              <button class="action-btn">Download</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Requirements Engineering</td>
+            <td>SE-2103</td>
+            <td>2025-03-15</td>
+            <td>1.8 MB</td>
+            <td>
+              <button class="action-btn view">View</button>
+              <button class="action-btn">Download</button>
+            </td>
+          </tr>
+          <tr>
+            <td>System Design & Architecture</td>
+            <td>SE-2103</td>
+            <td>2025-03-18</td>
+            <td>3 MB</td>
+            <td>
+              <button class="action-btn view">View</button>
+              <button class="action-btn">Download</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Testing & Quality Assurance</td>
+            <td>SE-2103</td>
+            <td>2025-03-20</td>
+            <td>2.2 MB</td>
+            <td>
+              <button class="action-btn view">View</button>
+              <button class="action-btn">Download</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
