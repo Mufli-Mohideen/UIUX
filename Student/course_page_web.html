@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Courses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #f5f6fa;
+        display: flex;
+      }
+
+      /* ---------- SIDEBAR ---------- */
+      .sidebar {
+        width: 260px;
+        background: #111827;
+        color: white;
+        min-height: 100vh;
+        padding: 25px 15px;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .student-name {
+        color: #9ca3af;
+        margin-bottom: 30px;
+      }
+
+      .menu a {
+        display: flex;
+        align-items: center;
+        color: #e5e7eb;
+        text-decoration: none;
+        padding: 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .menu a i {
+        width: 22px;
+        margin-right: 10px;
+      }
+
+      .menu a:hover,
+      .menu a.active {
+        background: rgb(234, 109, 0);
+        color: white;
+      }
+
+      /* ---------- MAIN ---------- */
+      .main {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .page-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+      }
+
+      /* ---------- COURSES GRID ---------- */
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .course-card {
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .course-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #111827;
+      }
+
+      /* space reserved for image */
+      .course-image {
+        height: 120px;
+        width: 100%;
+        background: #f9fafb;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #9ca3af;
+        font-size: 14px;
+        border: 2px dashed #e5e7eb;
+      }
+
+      .instructor {
+        font-size: 14px;
+        color: #6b7280;
+      }
+
+      /* Progress */
+      .progress-container {
+        margin-top: 8px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 10px;
+        background: #e5e7eb;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: rgb(234, 109, 0);
+        border-radius: 20px;
+      }
+
+      .progress-text {
+        margin-top: 6px;
+        font-size: 13px;
+        color: #374151;
+      }
+
+      /* Status tag - professional */
+      .status-tag {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .ongoing {
+        background: #fff7ed;
+        color: rgb(234, 109, 0);
+      }
+
+      .scheduled {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+
+      .completed {
+        background: #ecfdf5;
+        color: #10b981;
+      }
+
+      .pending {
+        background: #fef2f2;
+        color: #ef4444;
+      }
+
+      @media (max-width: 900px) {
+        .courses-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ========== SIDEBAR ========== -->
+    <div class="sidebar">
+      <div class="logo">Student Portal</div>
+      <div class="student-name">Mufli Mohideen</div>
+
+      <div class="menu">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a class="active" href="my-courses.html"
+          ><i class="fas fa-book-open"></i> My Courses</a
+        >
+        <a href="#"><i class="fas fa-file-alt"></i> Lecture Notes</a>
+        <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Timetable</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#"><i class="fas fa-wallet"></i> Fees</a>
+        <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+      </div>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main">
+      <div class="page-title">My Courses</div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <div class="course-card">
+          <span class="status-tag ongoing">On Going</span>
+          <div class="course-title">Software Engineering</div>
+
+          <!-- Your image will go here -->
+          <div class="course-image">Course Image Area</div>
+
+          <div class="instructor">Instructor: Dr. Jayalath</div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%"></div>
+            </div>
+            <div class="progress-text">70% Completed</div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+          <span class="status-tag scheduled">Exam Scheduled</span>
+          <div class="course-title">Database Systems</div>
+
+          <div class="course-image">Course Image Area</div>
+
+          <div class="instructor">Instructor: Ms. Perera</div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
+            </div>
+            <div class="progress-text">90% Completed</div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+          <span class="status-tag completed">Exam Completed</span>
+          <div class="course-title">Web Development</div>
+
+          <div class="course-image">Course Image Area</div>
+
+          <div class="instructor">Instructor: Mr. Thomas</div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="progress-text">100% Completed</div>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card">
+          <span class="status-tag pending">Waiting for Results</span>
+          <div class="course-title">Artificial Intelligence</div>
+
+          <div class="course-image">Course Image Area</div>
+
+          <div class="instructor">Instructor: Dr. Mishra</div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+            <div class="progress-text">85% Completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
