@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EduLMS — Course Management</title>
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+  body { display:flex; background:#f5f6fa; color:#111827; min-height:100vh; }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    width:300px;
+    background:#ffffff;
+    color:#111827;
+    border-right:1px solid #e9ecef;
+    min-height:100vh;
+    padding:28px 22px;
+  }
+
+  .logo {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-bottom:18px;
+  }
+  .logo img { width:44px; height:44px; border-radius:8px; object-fit:cover; }
+  .brand { font-size:16px; font-weight:700; }
+  .brand-sub { font-size:12px; color:#6b7280; margin-top:4px; }
+
+  .nav {
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:14px;
+  }
+  .nav a {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#374151;
+    padding:10px 12px;
+    border-radius:8px;
+    transition:0.3s;
+  }
+  .nav a i { width:20px; }
+  .nav a.active {
+    background: rgba(234,109,0,0.08);
+    font-weight:700;
+  }
+  .nav a:hover { background: rgba(234,109,0,0.15); }
+
+  /* ---------- MAIN ---------- */
+  .main { flex:1; padding:28px 36px; box-sizing:border-box; }
+
+  .page-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .page-title { font-size:20px; font-weight:700; color:#111827; }
+  .page-subtitle { margin-top:6px; color:#6b7280; font-size:13px; }
+
+  .top-controls {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+
+  .search {
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+  .search input {
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #e6e7eb;
+    background:#fff;
+    min-width:240px;
+  }
+
+  .filter {
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #e6e7eb;
+    background:#fff;
+    color:#374151;
+  }
+
+  .btn-add {
+    background: rgb(234,109,0);
+    color: #fff;
+    padding:10px 14px;
+    border-radius:8px;
+    border:1px solid rgb(234,109,0);
+    font-weight:700;
+    cursor:pointer;
+  }
+
+  /* ---------- Table Card ---------- */
+  .card {
+    background:#ffffff;
+    border-radius:10px;
+    border:1px solid #e9ecef;
+    padding:14px;
+    box-shadow:0 6px 18px rgba(2,6,23,0.03);
+    margin-top:16px;
+  }
+
+  table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  thead th {
+    text-align:left;
+    padding:12px 10px;
+    color:#6b7280;
+    font-size:13px;
+    font-weight:700;
+    border-bottom:1px solid #f0f2f5;
+  }
+  tbody td {
+    padding:12px 10px;
+    border-bottom:1px solid #f5f6f8;
+    color:#374151;
+    vertical-align:middle;
+  }
+
+  .code-col { width:110px; color:#6b7280; font-weight:600; }
+  .actions { display:flex; gap:8px; justify-content:flex-end; }
+  .btn-small {
+    padding:6px 10px;
+    border-radius:8px;
+    border:1px solid #d1d5db;
+    background:#fff;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+  }
+
+  .badge {
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:12px;
+    color:#fff;
+  }
+  .badge-active { background:#34d399; } /* green */
+  .badge-inactive { background:#9ca3af; } /* grey */
+
+  .spacer { height:18px; }
+
+  /* responsive */
+  @media (max-width: 980px) {
+    .sidebar { display:none; }
+    body { padding:12px; }
+    .main { padding:16px; }
+    .search input { min-width:140px; }
+    table { font-size:13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="logo">
+    <img src="/mnt/data/Screenshot 2025-11-25 200924.png" alt="logo" />
+    <div>
+      <div class="brand">EduLMS</div>
+      <div class="brand-sub">Administrator</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-user"></i> User Management</a>
+    <a href="#"><i class="fas fa-book-open"></i> Course Management</a>
+    <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+    <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<div class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Course Management</div>
+      <div class="page-subtitle">Manage courses, departments and lecturers</div>
+    </div>
+
+    <div class="top-controls">
+      <div class="search">
+        <input type="text" placeholder="Search courses..." aria-label="Search courses" />
+      </div>
+
+      <select class="filter" aria-label="Department filter">
+        <option>All Departments</option>
+        <option>Computer Science</option>
+        <option>Mathematics</option>
+        <option>Business</option>
+      </select>
+
+      <select class="filter" aria-label="Status filter">
+        <option>All Status</option>
+        <option>Active</option>
+        <option>Inactive</option>
+      </select>
+
+      <button class="btn-add">+ Add Course</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <table role="table" aria-label="Courses table">
+      <thead>
+        <tr>
+          <th class="code-col">Code</th>
+          <th>Course Name</th>
+          <th>Department</th>
+          <th>Credits</th>
+          <th>Lecturer</th>
+          <th>Enrolled</th>
+          <th>Status</th>
+          <th style="text-align:right; padding-right:18px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code-col">CS101</td>
+          <td>Introduction to Programming</td>
+          <td>Computer Science</td>
+          <td>3</td>
+          <td>Prof. John Smith</td>
+          <td>45 students</td>
+          <td><span class="badge badge-active">Active</span></td>
+          <td style="text-align:right; padding-right:18px;">
+            <div class="actions">
+              <button class="btn-small">View</button>
+              <button class="btn-small">Edit</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="code-col">CS102</td>
+          <td>Data Structures</td>
+          <td>Computer Science</td>
+          <td>3</td>
+          <td>Prof. Jane Doe</td>
+          <td>50 students</td>
+          <td><span class="badge badge-active">Active</span></td>
+          <td style="text-align:right; padding-right:18px;">
+            <div class="actions">
+              <button class="btn-small">View</button>
+              <button class="btn-small">Edit</button>
+            </div>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+</body>
+</html>
