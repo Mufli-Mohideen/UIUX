@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Lecture Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        background: #f5f6fa;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 260px;
+        background: #111827;
+        color: white;
+        min-height: 100vh;
+        padding: 25px 15px;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .student-name {
+        color: #9ca3af;
+        margin-bottom: 30px;
+      }
+
+      .menu a {
+        display: flex;
+        align-items: center;
+        color: #e5e7eb;
+        text-decoration: none;
+        padding: 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .menu a i {
+        width: 22px;
+        margin-right: 10px;
+      }
+
+      .menu a:hover,
+      .menu a.active {
+        background: rgb(234, 109, 0);
+        color: white;
+      }
+
+      /* Main */
+      .main {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .main h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+      }
+
+      /* Parent Tile */
+      .parent-tile {
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .parent-tile h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #111827;
+      }
+
+      /* Form Fields */
+      .form-field {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-field label {
+        font-size: 14px;
+        margin-bottom: 6px;
+        color: #444;
+      }
+
+      .form-field input,
+      .form-field select,
+      .form-field textarea {
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      .form-field textarea {
+        resize: none;
+      }
+
+      /* Upload Section */
+      .upload-section {
+        border: 2px dashed rgb(234, 109, 0);
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+        color: #555;
+        position: relative;
+      }
+
+      .upload-section i {
+        font-size: 40px;
+        color: rgb(234, 109, 0);
+        margin-bottom: 10px;
+      }
+
+      .upload-section p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+
+      .choose-file-btn {
+        margin-top: 10px;
+        background: rgb(234, 109, 0);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .upload-btn {
+        background: rgb(234, 109, 0);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .cancel-btn {
+        background: transparent;
+        border: 2px solid #999;
+        padding: 12px 25px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* Recently Uploaded Sub-Tiles */
+      .sub-tile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f9fafb;
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .sub-tile .file-icon {
+        font-size: 30px;
+        color: rgb(234, 109, 0);
+        width: 50px;
+        text-align: center;
+      }
+
+      .sub-tile .file-info {
+        flex: 1;
+        min-width: 200px;
+        margin-left: 15px;
+      }
+
+      .sub-tile .file-info div {
+        font-size: 14px;
+        margin-bottom: 3px;
+        color: #111827;
+      }
+
+      .sub-tile .file-info .course-date {
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      .sub-tile .actions button {
+        margin-left: 10px;
+        background: rgb(234, 109, 0);
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .sub-tile .actions button.delete-btn {
+        background: #ef4444;
+      }
+
+      @media (max-width: 900px) {
+        .form-actions {
+          flex-direction: column;
+        }
+        .sub-tile {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .sub-tile .actions {
+          margin-top: 10px;
+          width: 100%;
+        }
+        .sub-tile .actions button {
+          width: 48%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">Lecturer Portal</div>
+      <div class="student-name">Dr. Jane Doe</div>
+
+      <div class="menu">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="upload-lecture.html" class="active"
+          ><i class="fas fa-file-upload"></i> Upload Notes</a
+        >
+        <a href="#"><i class="fas fa-book-open"></i> My Courses</a>
+        <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+        <a href="#"><i class="fas fa-folder-open"></i> Submissions</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
+        <a href="#"><i class="fas fa-calendar-check"></i> Attendance</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Reports</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <h1>Upload Lecture Notes</h1>
+
+      <!-- Upload Lecture Notes Parent Tile -->
+      <div class="parent-tile">
+        <h2>Upload Lecture Notes</h2>
+
+        <div class="form-field">
+          <label>Select Course</label>
+          <select>
+            <option>SE-2103 - Software Engineering</option>
+            <option>CS-2101 - Database Systems</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Title</label>
+          <input type="text" placeholder="Enter Lecture Note Title" />
+        </div>
+
+        <div class="form-field">
+          <label>Description</label>
+          <textarea rows="3" placeholder="Enter description"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Upload Files</label>
+          <div class="upload-section">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Click to Upload or Drag and Drop</p>
+            <p>PDF, PPT, DOCX, MAX 50 MB files are allowed</p>
+            <button type="button" class="choose-file-btn">Choose Files</button>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="upload-btn">Upload</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Recently Uploaded Parent Tile -->
+      <div class="parent-tile">
+        <h2>Recently Uploaded</h2>
+
+        <div class="sub-tile">
+          <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+          <div class="file-info">
+            <div>Database Design Lecture</div>
+            <div class="course-date">DB-2105 | 2025-11-26 | 4 MB</div>
+          </div>
+          <div class="actions">
+            <button>Edit</button>
+            <button class="delete-btn">Delete</button>
+          </div>
+        </div>
+
+        <div class="sub-tile">
+          <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+          <div class="file-info">
+            <div>Software Project Overview</div>
+            <div class="course-date">SE-2103 | 2025-11-25 | 2 MB</div>
+          </div>
+          <div class="actions">
+            <button>Edit</button>
+            <button class="delete-btn">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
