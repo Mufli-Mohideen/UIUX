@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Announcements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      background: #f5f6fa;
+    }
+
+    /* -------- SIDEBAR -------- */
+    .sidebar {
+      width: 260px;
+      background: #111827;
+      color: white;
+      min-height: 100vh;
+      padding: 25px 15px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .lecturer-name {
+      color: #9ca3af;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .menu a i {
+      width: 22px;
+      margin-right: 10px;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background: rgb(234, 109, 0);
+      color: white;
+    }
+
+    /* -------- MAIN -------- */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .page-title {
+      font-size: 26px;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    /* -------- Announcement Container -------- */
+    .box {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #374151;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn {
+      background: rgb(234, 109, 0);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+    }
+
+    .announcement-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .announcement-header {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .announcement-meta {
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .edit-btn {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .delete-btn {
+      background: #ef4444;
+      color: white;
+    }
+
+    @media(max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; min-height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<div class="sidebar">
+  <div class="logo">Lecturer Portal</div>
+  <div class="lecturer-name">[Lecturer Name]</div>
+
+  <div class="menu">
+    <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+    <a href="#"><i class="fas fa-book-open"></i> My Courses</a>
+    <a href="#"><i class="fas fa-upload"></i> Upload Notes</a>
+    <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+    <a href="#"><i class="fas fa-folder-open"></i> Submissions</a>
+    <a href="#"><i class="fas fa-chart-bar"></i> Grades</a>
+    <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+    <a class="active" href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+    <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+  </div>
+</div>
+
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+  <div class="page-title">Announcements</div>
+
+  <!-- Create Announcement -->
+  <div class="box">
+    <h3 style="margin-bottom: 18px; font-size:18px;">Create Announcement</h3>
+
+    <label>Select Course</label>
+    <select>
+      <option>All Students</option>
+      <option>CS-2101</option>
+      <option>DB-2105</option>
+      <option>SE-2103</option>
+    </select>
+
+    <label>Title</label>
+    <input type="text" placeholder="Enter announcement title" />
+
+    <label>Message</label>
+    <textarea placeholder="Write announcement message"></textarea>
+
+    <button class="btn">Post Announcement</button>
+  </div>
+
+  <!-- Previous Announcements -->
+  <div class="box">
+    <h3 style="margin-bottom: 18px; font-size:18px;">Previous Announcements</h3>
+
+    <div class="announcement-item">
+      <div class="announcement-header">Mid-Semester Exam Schedule Updated</div>
+      <div class="announcement-meta">CS-2101 | Feb 14, 2025</div>
+      <div class="actions">
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <div class="announcement-item">
+      <div class="announcement-header">New Assignment Released</div>
+      <div class="announcement-meta">SE-2103 | Feb 11, 2025</div>
+      <div class="actions">
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <div class="announcement-item">
+      <div class="announcement-header">Guest Lecture on AI</div>
+      <div class="announcement-meta">All Students | Feb 01, 2025</div>
+      <div class="actions">
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

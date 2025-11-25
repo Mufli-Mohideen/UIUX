@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teaching Schedule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      background: #f5f6fa;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      width: 260px;
+      background: #111827;
+      color: white;
+      min-height: 100vh;
+      padding: 25px 15px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .lecturer-name {
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .menu a i {
+      width: 22px;
+      margin-right: 10px;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background: rgb(234, 109, 0);
+      color: white;
+    }
+
+    /* ---------- MAIN ---------- */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .page-title {
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+
+    /* ---------- Schedule Table ---------- */
+    .schedule-container {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f3f4f6;
+      padding: 14px;
+      font-weight: bold;
+      color: #111827;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    td {
+      padding: 18px;
+      border: 1px solid #e5e7eb;
+      height: 70px;
+      vertical-align: top;
+    }
+
+    .class-box {
+      background: #e0ecff;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 13px;
+      text-align: left;
+      color: #1e3a8a;
+    }
+
+    .class-box span {
+      display: block;
+      font-size: 12px;
+      color: #374151;
+    }
+
+    @media (max-width: 900px) {
+      th, td {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<div class="sidebar">
+  <div class="logo">Lecturer Portal</div>
+  <div class="lecturer-name">[Lecturer Name]</div>
+
+  <div class="menu">
+    <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="courses.html"><i class="fas fa-book-open"></i> My Courses</a>
+    <a href="upload-notes.html"><i class="fas fa-file-upload"></i> Upload Notes</a>
+    <a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a>
+    <a href="submissions.html"><i class="fas fa-file-alt"></i> Submissions</a>
+    <a href="grades.html"><i class="fas fa-chart-line"></i> Grades</a>
+    <a href="attendance.html"><i class="fas fa-calendar-check"></i> Attendance</a>
+    <a class="active" href="schedule.html"><i class="fas fa-calendar-alt"></i> Schedule</a>
+    <a href="announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a>
+    <a href="messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="reports.html"><i class="fas fa-file-invoice"></i> Reports</a>
+  </div>
+</div>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+  <div class="page-title">Teaching Schedule</div>
+
+  <div class="schedule-container">
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+
+      <tr>
+        <td>9:00 AM</td>
+        <td><div class="class-box">CS101<span>Room B201 | 45 Students</span></div></td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">IT214<span>Lab C102 | 32 Students</span></div></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>10:00 AM</td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">SE210<span>Room A305 | 40 Students</span></div></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>11:00 AM</td>
+        <td></td>
+        <td><div class="class-box">DB105<span>Room C110 | 38 Students</span></div></td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">CS101<span>Room B201 | 45 Students</span></div></td>
+      </tr>
+
+      <tr>
+        <td>12:00 PM</td>
+        <td><div class="class-box">AI220<span>Room D204 | 28 Students</span></div></td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">IT214<span>Lab C102 | 32 Students</span></div></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>1:00 PM</td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">CS301<span>Room B101 | 50 Students</span></div></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>2:00 PM</td>
+        <td></td>
+        <td><div class="class-box">DB105<span>Room C110 | 38 Students</span></div></td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">AI220<span>Room D204 | 28 Students</span></div></td>
+      </tr>
+
+      <tr>
+        <td>3:00 PM</td>
+        <td><div class="class-box">SE210<span>Room A305 | 40 Students</span></div></td>
+        <td></td>
+        <td></td>
+        <td><div class="class-box">CS301<span>Room B101 | 50 Students</span></div></td>
+        <td></td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

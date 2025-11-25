@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lecturer Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      background: #f5f6fa;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      width: 260px;
+      background: #111827;
+      color: white;
+      min-height: 100vh;
+      padding: 25px 15px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .student-name {
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .menu a i {
+      width: 22px;
+      margin-right: 10px;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background: rgb(234, 109, 0);
+      color: white;
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .page-title {
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+
+    /* ---------- CHAT LAYOUT ---------- */
+    .chat-container {
+      display: flex;
+      gap: 25px;
+    }
+
+    /* Left student list panel */
+    .chat-list {
+      width: 330px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 20px;
+      height: 75vh;
+      overflow-y: auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .chat-user {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.25s;
+      margin-bottom: 8px;
+    }
+
+    .chat-user:hover {
+      background: #f3f4f6;
+    }
+
+    .chat-user img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-right: 12px;
+      background: #ddd;
+    }
+
+    .chat-user .name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .chat-user .preview {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* ---------- MESSAGE PANEL ---------- */
+    .message-panel {
+      flex: 1;
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      height: 75vh;
+    }
+
+    .message-header {
+      display: flex;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 18px;
+    }
+
+    .message-header img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 12px;
+      background: #ddd;
+    }
+
+    .message-header .title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .msg {
+      max-width: 55%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .msg-left {
+      background: #e5e7eb;
+      color: #111827;
+      align-self: flex-start;
+    }
+
+    .msg-right {
+      background: rgb(234, 109, 0);
+      color: white;
+      align-self: flex-end;
+    }
+
+    /* Input box */
+    .chat-input {
+      display: flex;
+      gap: 10px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+    }
+
+    .send-btn {
+      background: rgb(234, 109, 0);
+      color: white;
+      border: none;
+      width: 80px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<div class="sidebar">
+  <div class="logo">Lecturer Portal</div>
+  <div class="student-name">Mr. Ahamed</div>
+
+  <div class="menu">
+    <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+    <a href="#"><i class="fas fa-book-open"></i> Courses</a>
+    <a href="#"><i class="fas fa-file-alt"></i> Upload Notes</a>
+    <a href="#"><i class="fas fa-tasks"></i> Assignments</a>
+    <a href="#"><i class="fas fa-graduation-cap"></i> Grades</a>
+    <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+    <a href="#"><i class="fas fa-bullhorn"></i> Announcements</a>
+    <a class="active" href="#"><i class="fas fa-comments"></i> Chat</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+  </div>
+</div>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+  <div class="page-title">Messages</div>
+
+  <div class="chat-container">
+
+    <!-- LEFT CHAT LIST -->
+    <div class="chat-list">
+      <div class="search-box">
+        <input type="text" placeholder="Search students..." />
+      </div>
+
+      <div class="chat-user">
+        <img />
+        <div>
+          <div class="name">Ali Hussain</div>
+          <div class="preview">Okay sir, thank you!</div>
+        </div>
+      </div>
+
+      <div class="chat-user">
+        <img />
+        <div>
+          <div class="name">Sajid Rahman</div>
+          <div class="preview">I submitted assignment 2</div>
+        </div>
+      </div>
+
+      <div class="chat-user">
+        <img />
+        <div>
+          <div class="name">Nimasha Silva</div>
+          <div class="preview">Can I resubmit?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT MESSAGE PANEL -->
+    <div class="message-panel">
+      <div class="message-header">
+        <img />
+        <div>
+          <div class="title">Ali Hussain</div>
+          <div style="font-size: 13px; color:#6b7280;">CS-2101</div>
+        </div>
+      </div>
+
+      <div class="messages">
+        <div class="msg msg-left">Good morning sir!</div>
+        <div class="msg msg-right">Good morning Ali 👍</div>
+        <div class="msg msg-left">Is tomorrow’s lecture online?</div>
+        <div class="msg msg-right">Yes, it will be on Zoom ✅</div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message..." />
+        <button class="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
