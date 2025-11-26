@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EduLMS — Add New Courses</title>
+
+<!-- Font Awesome for icons -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<style>
+  * { box-sizing:border-box; font-family:Arial, sans-serif; margin:0; padding:0; }
+
+  body { display:flex; min-height:100vh; background:#f5f6fa; color:#111827; }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    width:300px;
+    background:#ffffff;
+    color:#111827;
+    border-right:1px solid #e9ecef;
+    min-height:100vh;
+    padding:28px 22px;
+  }
+
+  .nav { margin-top:22px; display:flex; flex-direction:column; gap:8px; font-size:14px; }
+  .nav a {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#374151;
+    padding:10px 12px;
+    border-radius:8px;
+  }
+  .nav a i { width:20px; text-align:center; }
+  .nav a.active { background: rgba(234,109,0,0.08); font-weight:700; }
+
+  /* ---------- MAIN ---------- */
+  .main { flex:1; padding:28px 36px; box-sizing:border-box; }
+
+  .page-title { font-size:24px; font-weight:700; margin-bottom:18px; }
+
+  /* ---------- Form Container ---------- */
+  .form-container {
+    background:#ffffff;
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 6px 18px rgba(2,6,23,0.03);
+    width:100%; 
+  }
+
+  .form-group {
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+  }
+
+  .form-group label {
+    font-weight:600;
+    margin-bottom:6px;
+    color:#111827;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding:10px 12px;
+    border:1px solid #e6e7eb;
+    border-radius:8px;
+    font-size:14px;
+    background:#fff;
+    color:#111827;
+  }
+
+  .form-group textarea { resize: vertical; min-height:80px; }
+
+  .form-actions {
+    display:flex;
+    gap:12px;
+    margin-top:12px;
+  }
+
+  .btn {
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:14px;
+    border:none;
+    cursor:pointer;
+  }
+
+  .btn-add { background: rgb(234,109,0); color:#fff; }
+  .btn-cancel { background:#f3f4f6; color:#374151; }
+
+  @media (max-width: 800px) {
+    .main { padding:16px; }
+    .form-container { padding:16px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<aside class="sidebar">
+  <!-- Logo -->
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+    <div style="
+        width:42px;
+        height:42px;
+        background:rgb(234,109,0);
+        color:#fff;
+        border-radius:6px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:700;
+        font-size:18px;
+    ">E</div>
+    <div>
+      <div style="font-weight:700; font-size:16px;">EduLMS</div>
+      <div style="font-size:12px; color:#6b7280;">Administrator</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-users"></i> User Management</a>
+    <a href="#"><i class="fas fa-book"></i> Course Management</a>
+    <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+    <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+  </nav>
+</aside>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+  <div class="page-title">Add New Courses</div>
+
+  <div class="form-container">
+    <!-- Course Code -->
+    <div class="form-group">
+      <label for="course-code">Course Code</label>
+      <input type="text" id="course-code" placeholder="Enter course code" />
+    </div>
+
+    <!-- Department -->
+    <div class="form-group">
+      <label for="department">Department</label>
+      <select id="department">
+        <option value="">Select Department</option>
+        <option value="cs">Computer Science</option>
+        <option value="math">Mathematics</option>
+        <option value="business">Business</option>
+      </select>
+    </div>
+
+    <!-- Lecturer -->
+    <div class="form-group">
+      <label for="lecturer">Lecturer</label>
+      <input type="text" id="lecturer" placeholder="Enter lecturer name" />
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Enter course description"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button class="btn btn-add">Add Course</button>
+      <button class="btn btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
