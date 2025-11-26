@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EduLMS — Edit Course</title>
+
+<!-- Font Awesome Icons -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<style>
+  * { box-sizing: border-box; font-family: Arial, sans-serif; margin:0; padding:0; }
+
+  body {
+    display:flex;
+    min-height:100vh;
+    background:#f5f6fa;
+    color:#111827;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    width:300px;
+    background:#ffffff;
+    border-right:1px solid #e5e7eb;
+    padding:28px 22px;
+  }
+
+  .nav {
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:14px;
+  }
+
+  .nav a {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    color:#374151;
+    text-decoration:none;
+    border-radius:8px;
+  }
+
+  .nav a.active {
+    background: rgba(234,109,0,0.08);
+    font-weight:700;
+  }
+
+  .nav a i {
+    width:20px;
+    text-align:center;
+  }
+
+  /* ---------- MAIN CONTENT ---------- */
+  .main {
+    flex:1;
+    padding:32px 40px;
+  }
+
+  .page-title {
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:20px;
+  }
+
+  .form-container {
+    background:#fff;
+    padding:24px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(2,6,23,0.03);
+  }
+
+  .two-col {
+    display:flex;
+    gap:22px;
+    margin-bottom:18px;
+  }
+
+  .form-group {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .form-group label {
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding:10px 12px;
+    border:1px solid #e6e7eb;
+    border-radius:8px;
+    font-size:14px;
+    background:#fff;
+    color:#111827;
+  }
+
+  textarea {
+    min-height:120px;
+    resize:vertical;
+  }
+
+  .form-actions {
+    margin-top:16px;
+    display:flex;
+    gap:12px;
+  }
+
+  .btn {
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:14px;
+    border:none;
+    cursor:pointer;
+  }
+
+  .btn-save { background:rgb(234,109,0); color:#fff; }
+  .btn-cancel { background:#f3f4f6; color:#374151; }
+
+  @media(max-width:800px) {
+    .two-col { flex-direction:column; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<aside class="sidebar">
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+    <div style="
+      width:42px; height:42px;
+      background:rgb(234,109,0);
+      color:#fff;
+      border-radius:6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700; font-size:18px;
+    ">E</div>
+    <div>
+      <div style="font-weight:700; font-size:16px;">EduLMS</div>
+      <div style="font-size:12px; color:#6b7280;">Administrator</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#"><i class="fas fa-home"></i>Dashboard</a>
+    <a href="#"><i class="fas fa-users"></i>User Management</a>
+    <a href="#" class="active"><i class="fas fa-book"></i>Course Management</a>
+    <a href="#"><i class="fas fa-calendar-alt"></i>Schedule</a>
+    <a href="#"><i class="fas fa-credit-card"></i>Payments</a>
+    <a href="#"><i class="fas fa-chart-line"></i>Reports</a>
+    <a href="#"><i class="fas fa-bell"></i>Notifications</a>
+    <a href="#"><i class="fas fa-cog"></i>Settings</a>
+  </nav>
+</aside>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+  <div class="page-title">Edit Course</div>
+
+  <div class="form-container">
+
+    <!-- Row 1 -->
+    <div class="two-col">
+      <div class="form-group">
+        <label>Course Code</label>
+        <input type="text" value="CS101">
+      </div>
+
+      <div class="form-group">
+        <label>Course Name</label>
+        <input type="text" value="Current Course Name">
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="two-col">
+      <div class="form-group">
+        <label>Department</label>
+        <input type="text" value="Current Department">
+      </div>
+
+      <div class="form-group">
+        <label>Credits</label>
+        <input type="number" value="3">
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="form-group" style="width:200px;">
+      <label>Status</label>
+      <select>
+        <option selected>Active</option>
+        <option>Inactive</option>
+      </select>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="form-group">
+      <label>Description</label>
+      <textarea>Current course description</textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button class="btn btn-save">Save Changes</button>
+      <button class="btn btn-cancel">Cancel</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
