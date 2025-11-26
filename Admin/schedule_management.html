@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EduLMS — Class Schedule</title>
+
+<!-- Font Awesome -->
+<link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+  rel="stylesheet"
+/>
+
+</head>
+
+<body style="margin:0; font-family:Arial, sans-serif; background:#f5f6fa; color:#111827; display:flex; min-height:100vh;">
+
+<!-- ================= SIDEBAR ================= -->
+<aside style="
+  width:300px; background:#ffffff; border-right:1px solid #ececec;
+  min-height:100vh; padding:28px 22px; box-sizing:border-box;
+">
+
+  <!-- Logo -->
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+    <div style="
+      width:42px; height:42px; background:rgb(234,109,0); color:#fff;
+      border-radius:6px; display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:18px;
+    ">E</div>
+
+    <div>
+      <div style="font-weight:700; font-size:16px;">EduLMS</div>
+      <div style="font-size:12px; color:#6b7280;">Administrator</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav style="margin-top:22px; display:flex; flex-direction:column; gap:8px; font-size:14px;">
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-home"></i> Dashboard
+    </a>
+
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-users"></i> User Management
+    </a>
+
+    <a href="#" style="
+      display:flex; align-items:center; gap:10px; padding:10px 12px;
+      background:rgba(234,109,0,0.08); color:#374151; border-radius:8px;
+      font-weight:700; text-decoration:none !important;
+    ">
+      <i class="fas fa-calendar-alt"></i> Schedule
+    </a>
+
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-credit-card"></i> Payments
+    </a>
+
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-chart-line"></i> Reports
+    </a>
+
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-bell"></i> Notifications
+    </a>
+
+    <a href="#" style="display:flex; align-items:center; gap:10px; padding:10px 12px; text-decoration:none !important; color:#374151; border-radius:8px;">
+      <i class="fas fa-cog"></i> Settings
+    </a>
+  </nav>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div style="flex:1; padding:28px 36px; box-sizing:border-box;">
+
+  <div style="font-size:24px; font-weight:700; margin-bottom:18px;">
+    Class Schedule Management
+  </div>
+
+  <!-- Add Class Button -->
+  <div style="display:flex; justify-content:flex-end; margin-bottom:14px;">
+    <button style="
+      padding:10px 16px; background:rgb(234,109,0); color:#fff;
+      border:none; border-radius:6px; font-size:14px; font-weight:700;
+      cursor:pointer; display:flex; align-items:center; gap:6px;
+    ">
+      <i class="fas fa-plus"></i> Add Class
+    </button>
+  </div>
+
+  <!-- Table Container -->
+  <div style="
+    background:#fff; border-radius:12px;
+    border:1px solid #e6e7eb;
+    box-shadow:0 4px 14px rgba(0,0,0,0.03);
+  ">
+
+    <table style="width:100%; border-collapse:collapse; font-size:14px;">
+
+      <thead>
+        <tr style="background:#fafafa;">
+          <th style="padding:14px; border-bottom:1px solid #ededed; text-align:left; border-right:1px solid #eee;">Time</th>
+          <th style="padding:14px; border-bottom:1px solid #ededed; border-right:1px solid #eee;">Monday</th>
+          <th style="padding:14px; border-bottom:1px solid #ededed; border-right:1px solid #eee;">Tuesday</th>
+          <th style="padding:14px; border-bottom:1px solid #ededed; border-right:1px solid #eee;">Wednesday</th>
+          <th style="padding:14px; border-bottom:1px solid #ededed; border-right:1px solid #eee;">Thursday</th>
+          <th style="padding:14px; border-bottom:1px solid #ededed;">Friday</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+<!-- ========== 8:00 AM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">8:00 AM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;"></td>
+</tr>
+
+<!-- ========== 9:00 AM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">9:00 AM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;"></td>
+</tr>
+
+<!-- ========== 10:00 AM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">10:00 AM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+</tr>
+
+<!-- ========== 11:00 AM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">11:00 AM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;"></td>
+</tr>
+
+<!-- ========== 12:00 PM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">12:00 PM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;"></td>
+</tr>
+
+<!-- ========== 1:00 PM ========== -->
+<tr>
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">1:00 PM</td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-bottom:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+</tr>
+
+<!-- ========== 2:00 PM ========== -->
+<tr>
+  <td style="padding:16px; border-right:1px solid #eee;">2:00 PM</td>
+
+  <td style="padding:16px; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-right:1px solid #eee;"></td>
+
+  <td style="padding:16px; border-right:1px solid #eee;">
+    <div style="background:#eef5ff; padding:10px; border-radius:6px; border:1px solid #d0dcff; font-size:12px;">
+      <b>[Course]</b><br><span style="color:#555;">[Room] • [Lecturer]</span>
+    </div>
+  </td>
+
+  <td style="padding:16px;"></td>
+</tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+</body>
+</html>
