@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduLMS — Notification Management</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+
+    body {
+        display:flex;
+        height:100vh;
+        overflow:hidden;
+        background:#f5f6fa;
+        color:#111827;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+        width:300px;
+        background:#ffffff;
+        border-right:1px solid #e9ecef;
+        padding:28px 22px;
+        min-height:100vh;
+    }
+
+    .nav {
+        margin-top:22px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        font-size:14px;
+    }
+
+    .nav a {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding:10px 12px;
+        border-radius:8px;
+        text-decoration:none;
+        color:#374151;
+    }
+
+    .nav a.active {
+        background:rgba(234,109,0,0.08);
+        font-weight:700;
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+    .main {
+        flex:1;
+        padding:28px 36px;
+        overflow:hidden;
+        display:flex;
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .top-row {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .page-title {
+        font-size:24px;
+        font-weight:700;
+    }
+
+    .btn-top {
+        background:rgb(234,109,0);
+        color:#fff;
+        padding:10px 18px;
+        border-radius:8px;
+        border:none;
+        cursor:pointer;
+        font-weight:700;
+    }
+
+    /* ---------- CREATE CARD ---------- */
+    .create-card {
+        background:#fff;
+        padding:24px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(2,6,23,0.03);
+        border:1px solid #ececec;
+
+        /* FIXED HEIGHT REMOVED */
+        flex:0 0 auto;
+
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .section-title {
+        font-size:18px;
+        font-weight:700;
+    }
+
+    .form-group {
+        display:flex;
+        flex-direction:column;
+        gap:6px;
+    }
+
+    input, select, textarea {
+        padding:10px 12px;
+        border:1px solid #e6e7eb;
+        border-radius:8px;
+        font-size:14px;
+        width:100%;
+    }
+
+    textarea {
+        resize:none;
+        height:90px; /* Increased visibility */
+    }
+
+    .btn-send {
+        background:#111827;
+        color:#fff;
+        padding:10px 18px;
+        border:none;
+        border-radius:8px;
+        font-weight:700;
+        cursor:pointer;
+        width:170px;
+        margin-top:8px;
+    }
+
+    /* ---------- HISTORY ---------- */
+    .history-card {
+        background:#fff;
+        padding:24px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(2,6,23,0.03);
+        border:1px solid #ececec;
+
+        flex:1; 
+        display:flex;
+        flex-direction:column;
+        overflow:hidden;
+    }
+
+    .history-list {
+        overflow-y:auto;
+        padding-right:10px;
+        margin-top:10px;
+    }
+
+    .history-item {
+        background:#fff;
+        border-radius:10px;
+        padding:16px;
+        box-shadow:0 4px 12px rgba(2,6,23,0.03);
+        border:1px solid #f0f0f0;
+        margin-bottom:14px;
+    }
+
+    .history-title {
+        font-size:16px;
+        font-weight:700;
+        margin-bottom:4px;
+    }
+
+    .history-meta {
+        font-size:13px;
+        color:#6b7280;
+        margin-bottom:6px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<aside class="sidebar">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+        <div style="
+            width:42px;height:42px;
+            background:rgb(234,109,0);
+            border-radius:6px;
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:18px;
+            font-weight:700;
+        ">E</div>
+
+        <div>
+            <div style="font-size:16px;font-weight:700;">EduLMS</div>
+            <div style="font-size:12px;color:#6b7280;">Administrator</div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-users"></i> User Management</a>
+        <a href="#"><i class="fas fa-book"></i> Course Management</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+        <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+        <a class="active" href="#"><i class="fas fa-bell"></i> Notifications</a>
+        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+</aside>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main">
+
+    <div class="top-row">
+        <div class="page-title">Notification Management</div>
+        <button class="btn-top"><i class="fas fa-plus"></i> Send Notification</button>
+    </div>
+
+    <!-- CREATE NOTIFICATION -->
+    <div class="create-card">
+        <div class="section-title">Create Notification</div>
+
+        <div class="form-group">
+            <label>Recipient Type</label>
+            <select>
+                <option>All Users</option>
+                <option>Students</option>
+                <option>Teachers</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" placeholder="Notification title">
+        </div>
+
+        <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Notification message"></textarea>
+        </div>
+
+        <button class="btn-send">Send Notification</button>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history-card">
+        <div class="section-title">Notification History</div>
+
+        <div class="history-list">
+
+            <div class="history-item">
+                <div class="history-title">[Notification Title 1]</div>
+                <div class="history-meta">Sent to All Users • [Date & Time]</div>
+                <div>[Notification message preview]</div>
+            </div>
+
+            <div class="history-item">
+                <div class="history-title">[Notification Title 2]</div>
+                <div class="history-meta">Sent to All Users • [Date & Time]</div>
+                <div>[Notification message preview]</div>
+            </div>
+
+            <div class="history-item">
+                <div class="history-title">[Notification Title 3]</div>
+                <div class="history-meta">Sent to All Users • [Date & Time]</div>
+                <div>[Notification message preview]</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
