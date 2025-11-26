@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduLMS — System Settings</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+
+    body {
+        display:flex;
+        height:100vh;
+        overflow:hidden;
+        background:#f5f6fa;
+        color:#111827;
+    }
+
+    /* --------------------- SIDEBAR ---------------------- */
+    .sidebar {
+        width:300px;
+        background:#ffffff;
+        border-right:1px solid #e9ecef;
+        padding:28px 22px;
+        min-height:100vh;
+    }
+
+    .sidebar-header {
+        display:flex;
+        align-items:center;
+        gap:12px;
+        margin-bottom:32px;
+    }
+
+    .sidebar-logo {
+        width:42px;
+        height:42px;
+        background:rgb(234,109,0);
+        border-radius:6px;
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:18px;
+        font-weight:700;
+    }
+
+    .sidebar-title {
+        font-size:16px;
+        font-weight:700;
+    }
+
+    .sidebar-sub {
+        font-size:12px;
+        color:#6b7280;
+    }
+
+    .nav {
+        margin-top:22px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        font-size:14px;
+    }
+
+    .nav a {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding:10px 12px;
+        border-radius:8px;
+        text-decoration:none;
+        color:#374151;
+    }
+
+    .nav a i {
+        width:18px;
+        text-align:center;
+    }
+
+    .nav a.active {
+        background:rgba(234,109,0,0.08);
+        font-weight:700;
+    }
+
+    /* -------------------- MAIN CONTENT ------------------- */
+    .main {
+        flex:1;
+        padding:28px 36px;
+        height:100vh;
+        overflow-y:auto;
+    }
+
+    .page-title {
+        font-size:24px;
+        font-weight:700;
+        margin-bottom:22px;
+    }
+
+    /* --------------------- FORM CARDS --------------------- */
+    .card {
+        background:#ffffff;
+        padding:24px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(2,6,23,0.03);
+        border:1px solid #ececec;
+        margin-bottom:24px;
+    }
+
+    .card-title {
+        font-size:18px;
+        font-weight:700;
+        margin-bottom:20px;
+    }
+
+    .form-group {
+        display:flex;
+        flex-direction:column;
+        gap:6px;
+        margin-bottom:16px;
+    }
+
+    label {
+        font-size:14px;
+        color:#374151;
+    }
+
+    input, select {
+        padding:10px 12px;
+        border:1px solid #d1d5db;
+        border-radius:8px;
+        font-size:14px;
+        width:100%;
+    }
+
+    /* -------------------- CHECK OPTIONS ----------------------- */
+    .check-row {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:12px;
+    }
+
+    .check-row input[type=checkbox] {
+        width:16px;
+        height:16px;
+        accent-color:#2563eb;
+    }
+
+    .check-row label {
+        font-size:14px;
+        color:#1f2937;
+        cursor:pointer;
+    }
+
+    /* --------------------- BUTTONS --------------------- */
+    .button-row {
+        display:flex;
+        gap:16px;
+        margin-top:10px;
+    }
+
+    .btn-primary {
+        background:#111827;
+        color:#fff;
+        padding:11px 20px;
+        border-radius:8px;
+        border:none;
+        font-size:14px;
+        cursor:pointer;
+    }
+
+    .btn-secondary {
+        background:#ffffff;
+        color:#111827;
+        padding:11px 20px;
+        border-radius:8px;
+        border:1px solid #d1d5db;
+        font-size:14px;
+        cursor:pointer;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- -------------- SIDEBAR ----------------- -->
+<aside class="sidebar">
+
+    <div class="sidebar-header">
+        <div class="sidebar-logo">E</div>
+        <div>
+            <div class="sidebar-title">EduLMS</div>
+            <div class="sidebar-sub">Administrator</div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-users"></i> User Management</a>
+        <a href="#"><i class="fas fa-book"></i> Course Management</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
+        <a href="#"><i class="fas fa-credit-card"></i> Payments</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+        <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+        <a class="active" href="#"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+
+</aside>
+
+<!-- --------------- MAIN CONTENT ------------------ -->
+<div class="main">
+
+    <div class="page-title">System Settings</div>
+
+    <!-- GENERAL SETTINGS -->
+    <div class="card">
+        <div class="card-title">General Settings</div>
+
+        <div class="form-group">
+            <label>Institute Name</label>
+            <input type="text" placeholder="[Current Institute Name]">
+        </div>
+
+        <div class="form-group">
+            <label>Contact Email</label>
+            <input type="text" placeholder="[contact@institute.edu]">
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="[Phone]">
+        </div>
+    </div>
+
+    <!-- ACADEMIC SETTINGS -->
+    <div class="card">
+        <div class="card-title">Academic Settings</div>
+
+        <div class="form-group">
+            <label>Current Academic Year</label>
+            <input type="text" placeholder="2025-2026">
+        </div>
+
+        <div class="form-group">
+            <label>Current Semester</label>
+            <input type="text" placeholder="Fall 2025">
+        </div>
+    </div>
+
+    <!-- EMAIL & NOTIFICATION SETTINGS -->
+    <div class="card">
+        <div class="card-title">Email & Notification Settings</div>
+
+        <div class="check-row">
+            <input type="checkbox" checked>
+            <label>Send Welcome Emails to New Users</label>
+        </div>
+
+        <div class="check-row">
+            <input type="checkbox" checked>
+            <label>Send Assignment Deadline Reminders</label>
+        </div>
+
+        <div class="check-row">
+            <input type="checkbox" checked>
+            <label>Send Grade Publication Notifications</label>
+        </div>
+
+        <div class="button-row">
+            <button class="btn-primary">Save All Settings</button>
+            <button class="btn-secondary">Reset to Defaults</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
